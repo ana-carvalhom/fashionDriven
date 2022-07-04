@@ -1,0 +1,42 @@
+.header {
+    width: 100vw;
+    height: 89px;
+    background-color: #404EED;
+}
+
+.header img{
+    margin-top: 17px;
+    margin-bottom: 17px;
+    margin-left: 80px;
+}
+
+.tela-principal {
+    display: flex;
+    width: 100vw;
+}
+
+.conteudo {
+    width: 60vw;
+    height: 785px;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.imagem-lateral {
+    width: 40vw;
+    height: 785px;
+    background-color: #404EED;
+
+}
+
+
+.modelos {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    height: auto;
+
+}
+
+
