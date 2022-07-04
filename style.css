@@ -1,3 +1,7 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
 .header {
     width: 100vw;
     height: 89px;
@@ -20,7 +24,11 @@
     height: 785px;
     display: flex;
     flex-direction: column;
-   
+    justify-content: space-around;
+    padding-left: 5%;
+    box-sizing: border-box;
+    padding-top: 40px;
+  
 }
 
 .imagem-lateral {
@@ -30,13 +38,31 @@
 
 }
 
+.titulo {
+    font-size: 18px;
+    display: block;
+    margin: 15px;
+}
+
 
 .modelos {
     display: flex;
     width: 100%;
     justify-content: space-around;
     height: auto;
+    text-align: center;
+    
 
+}
+
+.modelos img{
+    border: 0.5px solid #C4C4C4;
+    border-radius: 80%;
+    width: 100px;
+    height: 100px;
+    background-color: #F2F2F2;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 
