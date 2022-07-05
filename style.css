@@ -25,9 +25,12 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding-left: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
     box-sizing: border-box;
     padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #FCFCFC;
   
 }
 
@@ -64,5 +67,81 @@ body{
     padding: 10px;
     box-sizing: border-box;
 }
+
+.selecionada img{
+    border: 3px solid #404EED;
+}
+/* nos modelos usar background image */
+
+.referencia {
+    width: 90%;
+    margin-bottom: 24px;
+  
+    
+    
+}
+
+input {
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    border: 0.5px solid #C4C4C4;
+    height: 40px;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+
+}
+
+.botao {
+    background-color: #C4C4C4;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-size: 20px;
+    width: 90%;
+    line-height: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+.botao.selecionada{
+    background-color: #404EED;
+}
+
+.tela-inferior{
+    width: 100vw;
+    background-color: #F2F2F2;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    box-sizing: border-box;
+    
+}
+.ultimos-Pedidos{
+    background-color: #F2F2F2;
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.card-Pedidos{
+    background-color: #FFFFFF;
+    height: 240px;
+    width: 202px;
+    text-align: center;
+    margin: 10px;
+    box-sizing: border-box;
+    padding-top: 20px;
+    border-radius: 10px;
+}
+
+.card-Pedidos img{
+    width: 180px;
+    height: 180px;
+}
+strong{
+    font-weight: 700;
+}
+
 
 
