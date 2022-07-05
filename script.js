@@ -58,5 +58,6 @@ function fazerPedido(){
         const botao = document.querySelector('.botao');
 
         botao.classList.add('selecionada');
-    }
+    } 
+
 }
