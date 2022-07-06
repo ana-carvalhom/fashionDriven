@@ -5,6 +5,8 @@ let linkReferencia;
 let pedidos;
 let nomeUser;
 
+buscarPedidos();
+
 function nome() {
     nomeUser = prompt("Seja Bem-vindx! Qual é o seu nome?");
     alert(`Olá ${nomeUser} !`)
@@ -103,24 +105,23 @@ function buscarPedidos(){
 function popularPedidos(resposta){
     console.log('jogando pedidos na variável pedidos')
     console.log(resposta)
-}
 
 if (resposta.status === 200){
     console.log('Get deu certo');
     pedidos = resposta.data;
     renderizarPedidos();
 }
-
+}
 //COLOCA OS PEDIDOS NO DOM - ETAPA 3
 
 function renderizarPedidos() {
     console.log('renderizando pedidos');
 
-    const ulPedidos = document.querySelector('.ultimos-Pedidos');
+    let ulPedidos = document.querySelector('.ultimos-Pedidos');
     ulPedidos = "";
 
     for (let i = 0; i < pedidos.length; i++){
-        
+        console.log("entrou no for")
         ulPedidos.innerHTML += `
         
         <li class="card-Pedidos">
@@ -135,12 +136,12 @@ function renderizarPedidos() {
 // CADASTRAR NOVO PEDIDO 
 
 function cadastrarNovoPedido(){
-    const modelo =  document.querySelector(".titulo.modelo").innerHTML;
-    const gola = document.querySelector(".titulo.gola").innerHTML;
-    const tecido = document.querySelector(".titulo.tecido").innerHTML;
+    const modelo =  "t-shirt";
+    const gola = "v-neck";
+    const tecido = "silk";
     const referencia = document.querySelector("input").value;
     const dono = "Owner";
-    const criador = nomeUser;
+    const criador = toString(nomeUser);
 
 
     const novoPedido = {
@@ -160,3 +161,10 @@ function cadastrarNovoPedido(){
     promise.catch(alertarErro);
 }
 
+function alertarErro(error){
+    console.log(error.response.status);
+
+    if (error.response.status === 422) {
+        alert("Verifique todos os campos do pedido");
+    }
+}
