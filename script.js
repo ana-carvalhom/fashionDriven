@@ -154,5 +154,9 @@ function cadastrarNovoPedido(){
 
     const promise = axios.post(
         "https://mock-api.driven.com.br/api/v4/shirts-api/shirts", novoPedido
-    )
+    );
+
+    promise.then(buscarPedidos);
+    promise.catch(alertarErro);
 }
+
