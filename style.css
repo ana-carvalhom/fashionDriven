@@ -123,10 +123,11 @@ input {
     display: flex;
     width: 100%;
     height: auto;
+    overflow-x: scroll;
 }
 
 .card-Pedidos{
-    background-color: red;
+    background-color: #FFFFFF;
     height: 240px;
     width: 202px;
     text-align: center;

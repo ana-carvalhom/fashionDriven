@@ -5,7 +5,7 @@ let linkReferencia;
 let pedidos;
 let nomeUser;
 
-buscarPedidos();
+
 
 function nome() {
     nomeUser = prompt("Seja Bem-vindx! Qual é o seu nome?");
@@ -87,7 +87,7 @@ function fazerPedido(){
 }
 
 ///
-
+buscarPedidos();
 //BUSCAR OS PEDIDOS DO SERVIDOR - ETAPA 1
 
 function buscarPedidos(){
@@ -118,19 +118,24 @@ function renderizarPedidos() {
     console.log('renderizando pedidos');
 
     let ulPedidos = document.querySelector('.ultimos-Pedidos');
-    ulPedidos = "";
+    ulPedidos.innerHTML = "";
 
     for (let i = 0; i < pedidos.length; i++){
         console.log("entrou no for")
         ulPedidos.innerHTML += `
         
         <li class="card-Pedidos">
-        <img src="${pedidos[i].image}">
-        <p><strong>Criador: </strong>${pedidos[i].author}</p>
+        <img src= ${pedidos[i].image}>
+        <p><strong>Criador: </strong>${pedidos[i].owner}</p>
         </li>
 
         `
     }
+
+    ulPedidos.innerHTML += `
+    </ul>
+    </div>
+    `
 }
 
 // CADASTRAR NOVO PEDIDO 
