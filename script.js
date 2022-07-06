@@ -5,15 +5,10 @@ let linkReferencia;
 let pedidos;
 let nomeUser;
 
+nomeUser = prompt("Seja Bem-vindx! Qual é o seu nome?");
 
 
-function nome() {
-    nomeUser = prompt("Seja Bem-vindx! Qual é o seu nome?");
-    alert(`Olá ${nomeUser} !`)
 
-}
-
-nome();
 function selecionarModelo (elemento){
     const selecionado = document.querySelector('.opcoes.modelo.selecionada');
 
@@ -23,6 +18,7 @@ function selecionarModelo (elemento){
     elemento.classList.add('selecionada');
     
     modelo = document.querySelector('.opcoes .titulo.modelo').innerHTML;
+    modelo = traduzirModelo(modelo);
 
     fazerPedido()
 }
@@ -36,6 +32,7 @@ function selecionarGola(elemento){
     elemento.classList.add('selecionada');
 
     gola = document.querySelector('.opcoes .titulo.gola').innerHTML;
+    gola = traduzirGola(gola);
 
     fazerPedido()
 }
@@ -49,6 +46,7 @@ function selecionarTecido(elemento){
     elemento.classList.add('selecionada');
 
     tecido = document.querySelector('.opcoes .titulo.tecido').innerHTML;
+    tecido = traduzirTecido(tecido);
     
     fazerPedido()
 }
@@ -86,6 +84,46 @@ function fazerPedido(){
 
 }
 
+
+function traduzirModelo(elemento){
+    if (elemento === 'T-shirt'){
+        elemento = 't-shirt';
+    } else if (elemento === 'Camiseta') {
+        elemento = 'top-tank'; 
+    } else if (elemento === 'Manga Longa'){
+        elemento = 'long';
+    } else {
+        console.log('Falha na tradução do modelo')
+    }
+
+    return elemento;
+}
+
+function traduzirGola(elemento){
+    if (elemento === 'Gola-V'){
+        elemento = 'v-neck';
+    } else if (elemento === 'Gola Redonda'){
+        elemento = 'round';
+    } else if (elemento === 'Gola Polo'){
+        elemento = 'polo';
+    } else {
+        console.log('Falha na tradução da gola')
+    }
+    return elemento
+}
+
+function traduzirTecido(elemento){
+    if (elemento === 'Seda'){
+        elemento = 'silk';
+    } else if (elemento === 'Algodão'){
+        elemento = 'cotton';
+    } else if (elemento === 'Poliéster'){
+        elemento = 'polyester';
+    } else {
+        console.log('Falha na tradução do tecido')
+    }
+    return elemento
+}
 ///
 buscarPedidos();
 //BUSCAR OS PEDIDOS DO SERVIDOR - ETAPA 1
@@ -141,35 +179,46 @@ function renderizarPedidos() {
 // CADASTRAR NOVO PEDIDO 
 
 function cadastrarNovoPedido(){
-    const modelo =  "t-shirt";
-    const gola = "v-neck";
-    const tecido = "silk";
     const referencia = document.querySelector("input").value;
-    const dono = "Owner";
-    const criador = toString(nomeUser);
 
+    let novoPedido = {
 
-    const novoPedido = {
         model: modelo,
         neck: gola,
         material: tecido,
         image: referencia,
-        owner: dono,
-        author: criador
-    };
+        owner: nomeUser,
+        author: nomeUser
+    }
 
+
+    console.log(novoPedido);
     const promise = axios.post(
         "https://mock-api.driven.com.br/api/v4/shirts-api/shirts", novoPedido
     );
 
-    promise.then(buscarPedidos);
+   
+
+    promise.then(confirmarPedido);
     promise.catch(alertarErro);
 }
+
+function confirmarPedido(){
+    linkReferencia = document.querySelector('input').value;
+    linkReferencia = "";
+    alert("Pedido confirmado! :)")
+
+    buscarPedidos();
+}
+
+
+// NA HORA DE PEGAR O PEDIDO - FAZER UMA OUTRA FUNÇÃO PARA VER OS PEDIDOS PRONTOS
+// modeloGola = resposta1.data[i].neck 
 
 function alertarErro(error){
     console.log(error.response.status);
 
     if (error.response.status === 422) {
-        alert("Verifique todos os campos do pedido");
+        alert("Ops, não conseguimos processar sua encomenda. Verifique todos os campos do pedido.");
     }
 }
