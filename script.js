@@ -143,17 +143,14 @@ function renderizarPedidos() {
         console.log("entrou no for")
         ulPedidos.innerHTML += `
         
-        <li class="card-Pedidos pedidoConfirmado" onClick="confirmar(this)">
-        <img src= ${pedidos[i].image} class="imagemEscondido">
-        <p class="escondido criadorEscondido"><strong>Criador: </strong>${pedidos[i].owner}</p>
+        <li class="card-Pedidos" onClick="confirmar(this)">
+        <img src= ${pedidos[i].image}>
+        <p class="escondido"><strong>Criador: </strong><span class="criadorEscondido">${pedidos[i].owner}</span></p>
         <p class="escondido modeloEscondido">${pedidos[i].model}</p>
         <p class="escondido golaEscondido">${pedidos[i].neck}</p>
         <p class="escondido tecidoEscondido">${pedidos[i].material}</p>
-        <div class="confirmacao">
-        <p class="confirmar simNao"><strong>Confirmar?</strong></p>
-        <p class="sim simNao">Sim</p>
-        <p class="nao simNao">Não</p>
-        </div>
+        <p class="escondido imagemEscondido">${pedidos[i].image}</p>
+       
         </li>
 
         `
@@ -227,7 +224,7 @@ function enviarPedidoCard(){
 const modeloCard = document.querySelector(".modeloEscondido").innerHTML;
 const golaCard = document.querySelector(".golaEscondido").innerHTML;
 const tecidoCard = document.querySelector(".tecidoEscondido").innerHTML;
-const imagemCard = document.querySelector(".imagemEscondido");
+const imagemCard = document.querySelector(".imagemEscondido").innerHTML;
 const ownerCard = document.querySelector(".criadorEscondido").innerHTML;
 const authorCard = document.querySelector(".criadorEscondido").innerHTML;
 
@@ -241,7 +238,6 @@ let pedidoCard = {
     author: authorCard,
 }
 
-    alert("Pedido Confirmado!")
 //     const promise = axios.post("https://mock-api.driven.com.br/api/v4/shirts-api/shirts", objetoPedidoCard);
 
 //     promise.then(alert("Pedido Confirmado!"))
