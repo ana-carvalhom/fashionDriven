@@ -25,7 +25,7 @@ function selecionarModelo (elemento){
 }
 
 function selecionarGola(elemento){
-    const selecionado = document.querySelector('.opcoes.gola .selecionada');
+    const selecionado = document.querySelector('.opcoes.gola.selecionada');
 
     if (selecionado !== null){
         selecionado.classList.remove('selecionada');
@@ -39,7 +39,7 @@ function selecionarGola(elemento){
 }
 
 function selecionarTecido(elemento){
-    const selecionado = document.querySelector('.opcoes.tecido .selecionada');
+    const selecionado = document.querySelector('.opcoes.tecido.selecionada');
 
     if (selecionado !== null){
         selecionado.classList.remove('selecionada');
