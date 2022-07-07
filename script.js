@@ -143,9 +143,12 @@ function renderizarPedidos() {
         console.log("entrou no for")
         ulPedidos.innerHTML += `
         
-        <li class="card-Pedidos pedidoConfirmado" onClick="confirmar()">
-        <img src= ${pedidos[i].image}>
-        <p class="escondido"><strong>Criador: </strong>${pedidos[i].owner}</p>
+        <li class="card-Pedidos pedidoConfirmado" onClick="confirmar(this)">
+        <img src= ${pedidos[i].image} class="imagemEscondido">
+        <p class="escondido criadorEscondido"><strong>Criador: </strong>${pedidos[i].owner}</p>
+        <p class="escondido modeloEscondido">${pedidos[i].model}</p>
+        <p class="escondido golaEscondido">${pedidos[i].neck}</p>
+        <p class="escondido tecidoEscondido">${pedidos[i].material}</p>
         <div class="confirmacao">
         <p class="confirmar simNao"><strong>Confirmar?</strong></p>
         <p class="sim simNao">Sim</p>
@@ -209,16 +212,9 @@ function alertarErro(error){
     }
 }
 
-function confirmar(j){
-//     console.log(j);
+function confirmar(elemento){
 
-//     objetoPedidoCard.model = pedidos[j].model;
-//     objetoPedidoCard.neck = pedidos[j].neck;
-//     objetoPedidoCard.material = pedidos[j].material;
-//     objetoPedidoCard.image = pedidos[j].image;
-//     objetoPedidoCard.owner = pedidos[j].owner;
-//     objetoPedidoCard.author = nomeUser;
-    
+    console.log(elemento);
 
  let confirmarPedidoCard = confirm("Deseja pedir esse produto?");
  if (confirmarPedidoCard){
@@ -227,9 +223,37 @@ function confirmar(j){
  }
 
 function enviarPedidoCard(){
+
+const modeloCard = document.querySelector(".modeloEscondido").innerHTML;
+const golaCard = document.querySelector(".golaEscondido").innerHTML;
+const tecidoCard = document.querySelector(".tecidoEscondido").innerHTML;
+const imagemCard = document.querySelector(".imagemEscondido");
+const ownerCard = document.querySelector(".criadorEscondido").innerHTML;
+const authorCard = document.querySelector(".criadorEscondido").innerHTML;
+
+let pedidoCard = {
+
+    model: modeloCard,
+    neck: golaCard,
+    material: tecidoCard,
+    image: imagemCard,
+    owner: ownerCard,
+    author: authorCard,
+}
+
     alert("Pedido Confirmado!")
 //     const promise = axios.post("https://mock-api.driven.com.br/api/v4/shirts-api/shirts", objetoPedidoCard);
 
 //     promise.then(alert("Pedido Confirmado!"))
 //     promise.catch(alert("Não foi possível processar o seu pedido :("))
+
+
+console.log(pedidoCard);
+    const promise = axios.post(
+        "https://mock-api.driven.com.br/api/v4/shirts-api/shirts", pedidoCard
+    );
+
+    promise.then(alert("Pedido confirmado! :)"));
+    promise.catch(alertarErro);
  }
+
