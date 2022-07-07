@@ -32,7 +32,7 @@ body{
     padding-top: 40px;
     padding-bottom: 40px;
     background-color: #FCFCFC;
-  
+
 }
 
 .imagem-lateral {
@@ -55,7 +55,7 @@ body{
     justify-content: space-around;
     height: auto;
     text-align: center;
-    
+
 
 }
 
@@ -77,9 +77,9 @@ body{
 .referencia {
     width: 90%;
     margin-bottom: 24px;
-  
-    
-    
+
+
+
 }
 
 input {
@@ -116,7 +116,7 @@ input {
     padding-top: 2%;
     padding-bottom: 2%;
     box-sizing: border-box;
-    
+
 }
 .ultimos-Pedidos{
     background-color: #F2F2F2;
@@ -137,6 +137,26 @@ input {
     border-radius: 10px;
 }
 
+/* .confirmar{
+    display: block;
+    margin: 10px;
+} */
+
+.confirmacao {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.pedidoConfirmado{
+    border: 2px solid #32B72F;
+}
+.simNao{
+    display: block;
+    margin: 5px;
+}
 .card-Pedidos img{
     width: 180px;
     height: 180px;
@@ -145,5 +165,6 @@ strong{
     font-weight: 700;
 }
 
-
-
+.escondido{
+    display: none;
+}

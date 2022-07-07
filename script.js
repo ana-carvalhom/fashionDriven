@@ -2,8 +2,9 @@ let modelo;
 let gola;
 let tecido;
 let linkReferencia;
-let pedidos;
+let pedidos = [];
 let nomeUser;
+
 
 nomeUser = prompt("Seja Bem-vindx! Qual é o seu nome?");
 
@@ -50,26 +51,6 @@ function selecionarTecido(elemento){
     
     fazerPedido()
 }
-
-   
-
-    // function isURL(string) {
-
-    //     linkReferencia = document.querySelector('input').value;
-
-    //     try {
-    //         let url = new URL(string)
-    //         return true;
-    //     } catch (err) {
-    //         return false;
-    //     }
-
-        
-    // }
-
-    // isURL(linkReferencia);
-    // console.log("chegou no link de referencia")
-    // console.log(isURL);
 
 
 function fazerPedido(){
@@ -162,9 +143,14 @@ function renderizarPedidos() {
         console.log("entrou no for")
         ulPedidos.innerHTML += `
         
-        <li class="card-Pedidos">
+        <li class="card-Pedidos pedidoConfirmado" onClick="confirmar()">
         <img src= ${pedidos[i].image}>
-        <p><strong>Criador: </strong>${pedidos[i].owner}</p>
+        <p class="escondido"><strong>Criador: </strong>${pedidos[i].owner}</p>
+        <div class="confirmacao">
+        <p class="confirmar simNao"><strong>Confirmar?</strong></p>
+        <p class="sim simNao">Sim</p>
+        <p class="nao simNao">Não</p>
+        </div>
         </li>
 
         `
@@ -222,3 +208,28 @@ function alertarErro(error){
         alert("Ops, não conseguimos processar sua encomenda. Verifique todos os campos do pedido.");
     }
 }
+
+function confirmar(j){
+//     console.log(j);
+
+//     objetoPedidoCard.model = pedidos[j].model;
+//     objetoPedidoCard.neck = pedidos[j].neck;
+//     objetoPedidoCard.material = pedidos[j].material;
+//     objetoPedidoCard.image = pedidos[j].image;
+//     objetoPedidoCard.owner = pedidos[j].owner;
+//     objetoPedidoCard.author = nomeUser;
+    
+
+ let confirmarPedidoCard = confirm("Deseja pedir esse produto?");
+ if (confirmarPedidoCard){
+          enviarPedidoCard();
+         }
+ }
+
+function enviarPedidoCard(){
+    alert("Pedido Confirmado!")
+//     const promise = axios.post("https://mock-api.driven.com.br/api/v4/shirts-api/shirts", objetoPedidoCard);
+
+//     promise.then(alert("Pedido Confirmado!"))
+//     promise.catch(alert("Não foi possível processar o seu pedido :("))
+ }
