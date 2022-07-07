@@ -52,10 +52,15 @@ function selecionarTecido(elemento){
     fazerPedido()
 }
 
+function preencherReferencia(){
+    linkReferencia = document.querySelector("input");
+
+    fazerPedido()
+}
 
 function fazerPedido(){
 
-    if (modelo !== undefined && gola !== undefined && tecido !== undefined){
+    if (modelo !== undefined && gola !== undefined && tecido !== undefined && linkReferencia !== ''){
         console.log("Você pode fazer o pedido!");
 
         const botao = document.querySelector('.botao');
