@@ -42,6 +42,8 @@ body{
 
 }
 
+
+
 .titulo {
     font-size: 18px;
     display: block;
@@ -65,7 +67,7 @@ body{
     width: 100px;
     height: 100px;
     background-color: #F2F2F2;
-    padding: 10px;
+    /* padding: 10px; */
     box-sizing: border-box;
 }
 
@@ -77,9 +79,6 @@ body{
 .referencia {
     width: 90%;
     margin-bottom: 24px;
-
-
-
 }
 
 input {
@@ -167,4 +166,57 @@ strong{
 
 .escondido{
     display: none;
+}
+
+
+@media (max-width: 600px) {
+
+
+    .body{
+        width: auto;
+    }
+    .imagem-lateral {
+        display: none;
+    }
+    
+    .header img{
+        margin-top: 17px;
+        margin-bottom: 17px;
+        margin-left: 80px;
+    }
+
+    .conteudo {
+        width: 100vw;
+        justify-content: center;
+    }
+
+    .referencia {
+        width: 100%;
+}
+
+    .botao{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+
+    .ultimos-Pedidos {
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+   .titulo.ultimosPedidos {
+        text-align: center;
+        font-size: 24px;
+   }
+
+   .header {
+    margin-bottom: 21px;
+   }
+
+   .modelos img{
+    height: 80px;
+    width: 80px;
+   }
 }
